@@ -1,10 +1,11 @@
 import React from "react";
+import Home from "./components/Home/Home";
 
 function App() {
   return (
-    <div className="container">
-      <h1>hello typescript</h1>
-    </div>
+    <>
+      <Home />
+    </>
   );
 }
 
