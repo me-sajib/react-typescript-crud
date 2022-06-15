@@ -6,7 +6,6 @@ import Update from "./components/Update/Update";
 function App() {
   return (
     <>
-      <Home />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/user" element={<Home />} />
