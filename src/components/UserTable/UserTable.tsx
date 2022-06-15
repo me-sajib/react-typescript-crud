@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
 import UserModel from "../../types/UserModel";
 
 interface Props {
@@ -12,7 +13,9 @@ const UserTable: FC<Props> = ({ user, deleteUser }) => {
       <td>{user.name}</td>
       <td>{user.email}</td>
       <td>
-        <button className="btn btn-info">Edit</button>
+        <Link className="btn btn-info" to={"/update/" + user._id}>
+          Edit
+        </Link>
         <button
           className="mx-2 btn btn-danger"
           onClick={() => deleteUser(user)}
