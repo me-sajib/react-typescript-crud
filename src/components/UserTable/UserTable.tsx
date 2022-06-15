@@ -11,7 +11,11 @@ const UserTable: FC<Props> = ({ user, deleteUser }) => {
       <td>{user.name}</td>
       <td>{user.email}</td>
       <td>
-        <button className="btn btn-danger" onClick={() => deleteUser(user)}>
+        <button className="btn btn-info">Edit</button>
+        <button
+          className="mx-2 btn btn-danger"
+          onClick={() => deleteUser(user)}
+        >
           Delete
         </button>
       </td>
