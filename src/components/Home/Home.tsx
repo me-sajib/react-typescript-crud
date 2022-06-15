@@ -90,6 +90,7 @@ const Home = () => {
           <table className="table  table-striped">
             <thead>
               <tr>
+                <td>No.</td>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Action</th>

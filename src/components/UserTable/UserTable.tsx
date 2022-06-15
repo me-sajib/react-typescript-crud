@@ -8,6 +8,7 @@ interface Props {
 const UserTable: FC<Props> = ({ user, deleteUser }) => {
   return (
     <tr>
+      <td>1</td>
       <td>{user.name}</td>
       <td>{user.email}</td>
       <td>
