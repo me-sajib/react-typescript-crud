@@ -36,8 +36,8 @@ const Home = () => {
   };
 
   //   delete user by id
-  const deleteUser = (id: string) => {
-    fetch(`http://localhost:5000/user/${id}`, {
+  const deleteUser = (deleteItem: UserModel) => {
+    fetch(`http://localhost:5000/user/${deleteItem._id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const Home = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setUsers(users.filter((user) => user.id !== id));
+        console.log(data);
       });
   };
   return (
@@ -87,7 +87,20 @@ const Home = () => {
         </div>
         {/* user show table column */}
         <div className="col-md-6">
-          <UserTable />
+          <table className="table  table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <UserTable user={user} key={user._id} deleteUser={deleteUser} />
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
