@@ -1,27 +1,19 @@
-import React from "react";
+import React, { FC } from "react";
+import UserModel from "../../types/UserModel";
 
-const UserTable = () => {
+interface Props {
+  user: UserModel;
+  deleteUser: (user: UserModel) => void;
+}
+const UserTable: FC<Props> = ({ user, deleteUser }) => {
   return (
-    <table className="table  table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>John</td>
-          <td>
-            <a href="mailto:jhon@gmail.com ">email</a>
-          </td>
-          <td>
-            <button className="btn btn-danger">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <tr>
+      <td>{user.name}</td>
+      <td>{user.email}</td>
+      <td>
+        <button className="btn btn-danger">Delete</button>
+      </td>
+    </tr>
   );
 };
 
