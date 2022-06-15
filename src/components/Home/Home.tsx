@@ -1,9 +1,16 @@
-import React, { SyntheticEvent } from "react";
+import React, { SyntheticEvent, useEffect } from "react";
 import UserModel from "../../types/UserModel";
 import UserTable from "../UserTable/UserTable";
 
 const Home = () => {
   const [users, setUsers] = React.useState<UserModel[]>([]);
+
+  //   fetching all user from database
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
 
   const addUser = (e: SyntheticEvent) => {
     e.preventDefault();
