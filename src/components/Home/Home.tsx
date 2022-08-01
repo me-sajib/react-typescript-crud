@@ -37,16 +37,21 @@ const Home = () => {
 
   //   delete user by id
   const deleteUser = (deleteItem: UserModel) => {
-    fetch(`http://localhost:5000/user/${deleteItem._id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    const confirm = window.confirm(
+      "Are you sure you want to delete this user?"
+    );
+    if (confirm) {
+      fetch(`http://localhost:5000/user/${deleteItem._id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+    }
   };
   return (
     <div className="container">
